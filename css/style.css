@@ -137,6 +137,7 @@ body {
     margin: 0 0 10px 0;
     padding: 14px 100px 14px 14px;
     word-break: break-word;
+    transition: all .2s;
 }
 
 .todo-item:last-of-type {
