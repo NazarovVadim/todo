@@ -85,7 +85,7 @@ class Todo {
         const li = (target.parentNode).parentNode;
         this.todoData.forEach(item => {
             if(item.value === li.textContent.trim()){
-                item.completed = true;              
+                item.completed = (item.completed) ? false : true;              
             }
         });
         this.render();
