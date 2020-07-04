@@ -60,7 +60,28 @@ class Todo {
         return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     }
 
-    
+    toLeftAnimation(target) {
+        const li = target.closest('.todo-item');
+        let timer;
+        const startTime = Date.now();
+        const _this = this;
+        function move(passedTime) {
+          li.style.left = '-' + (passedTime * 0.5 + '%');
+        }
+        function animation() {
+            timer = requestAnimationFrame(animation);
+            const passedTime = Date.now() - startTime;
+            if (passedTime >= 200) {
+            cancelAnimationFrame(timer);
+            _this.render();
+            return target;
+            }
+            move(passedTime);
+        }
+        timer = requestAnimationFrame(animation);
+        console.log(li);
+        
+    }
 
     handler(e){
         let target = e.target;
@@ -74,20 +95,20 @@ class Todo {
     deleteItem(target){
         const li = (target.parentNode).parentNode;    
         this.todoData.forEach(item => {
-            if(item.value === li.textContent.trim()){
-                this.todoData.delete(item.key);               
-            }
+            if(item.value === li.textContent.trim())
+                this.todoData.delete(item.key);
         });
+        this.toLeftAnimation(target);
         this.render();
     }
 
     completedItem(target){
         const li = (target.parentNode).parentNode;
         this.todoData.forEach(item => {
-            if(item.value === li.textContent.trim()){
+            if(item.value === li.textContent.trim())
                 item.completed = (item.completed) ? false : true;
-            }
         });
+        this.toLeftAnimation(target);
         this.render();
     }
 
