@@ -182,8 +182,8 @@ body {
 }
 
 .todo-remove {
-     background-image: url("../img/trash.png");
- }
+    background-image: url("../img/trash.png");
+}
 
 .todo-complete {
     background-image: url("../img/uncheck.png");
@@ -193,8 +193,28 @@ body {
     background-image: url("../img/check.png");
 }
 
+.todo-edit{
+    background-image: url("../img/icons8-edit-24.png");
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    right: 100px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+}
+.todo-edit:hover{
+    cursor: pointer;
+}
+
 .todo-completed {
-    position: relative;
     padding: 60px 0 0 0;
 }
 
